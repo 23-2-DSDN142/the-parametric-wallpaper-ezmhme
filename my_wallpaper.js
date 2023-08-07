@@ -3,10 +3,12 @@ let circledia = 75; //75 //circle size
 let petalwidth = 25; //25 //width of petal
 let strokeW = 2; //2 //strokeWeight
 let petallength = 70; //70 //length of petal
+let squaresize = 130; //130 //size of centre white square
+let squarecentre = 35; //35 //placement of square //when squaresize+10, squarecentre-5
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_PORTRAIT);
+  pWallpaper.resolution(NINE_LANDSCAPE);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -16,20 +18,20 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  let cc = color(255); //(255,254,219) //cream
+  let cc = color(153,199,255); //(255,254,219) //cream
   background(cc);
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  let c = color(153,199,255); //light blue colour
-  let cc = color(255); //(255,254,219) //cream
+  let c = color(255); //light blue colour
+  let cc = color(153,199,255); //(255,254,219) //cream
   if(petallength < 70){
     fill(c);
     noStroke();
     square(28,28,20);
     square(28,152,20);
     square(152,28,20);
-    square(152,152,20);
+    square(152,152,20); //corner blue squares drawn in when statement is true
   }
   
   fill(c);
@@ -38,6 +40,9 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   circle(160,100,circledia); //right centre circle
   circle(100,40,circledia); //top centre circle
   circle(100,160,circledia); //bottom centre circle
+
+  fill(c);
+  square(squarecentre,squarecentre,squaresize);
 
   fill(cc);
   beginShape();
